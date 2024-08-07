@@ -3,13 +3,11 @@ require 'json'
 require 'uri'
 require 'dotenv'
 
-Dotenv.load
 
 class Codemonkey
-  
-  BASE_URL = ENV['BASE_URL']
 
-  def initialize(llm_api_key:, github_token:, repo_owner:, repo_name:, user_name: nil)
+  def initialize(base_url:, llm_api_key:, github_token:, repo_owner:, repo_name:, user_name: nil)
+    @base_url = base_url
     @llm_api_key = llm_api_key
     @github_token = github_token
     @repo_owner = repo_owner
@@ -25,7 +23,7 @@ class Codemonkey
   def llm_with_context(issue_summary:)
     request_body = {
       github: { github_token: @github_token, repo_owner: @repo_owner, repo_name: @repo_name, user_name: @user_name },
-      issue_summary: { issue_summary: issue_summary }
+      params: { issue_summary: issue_summary, token: @llm_api_key }
     }
     request(:post, '/codemonkey/llm_with_context', request_body, @llm_api_key)
   end
@@ -91,8 +89,9 @@ class Codemonkey
   private
 
   def request(method, path, body = nil, api_key = nil)
-    uri = URI.join(BASE_URL, path)
-    http = Net::HTTP.new(uri.host, uri.port, use_ssl: uri.scheme == 'https')
+    uri = URI.join(@base_url, path)
+    #http = Net::HTTP.new(uri.host, uri.port, use_ssl: uri.scheme == 'https')
+    http = Net::HTTP.new(uri.host, uri.port)
     req = build_request(method, uri, body, api_key)
     response = http.request(req)
     parse_response(response)
