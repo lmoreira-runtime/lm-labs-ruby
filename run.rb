@@ -22,7 +22,7 @@ codemonkey = Codemonkey.new(
 # Run Codemonkey tasks
 begin
   # Replace with actual issue number
-  issue_number = 1
+  issue_number = 4
   
   # # List issues -> OK
   # puts "Listing issues assigned to #{user_name}"
@@ -33,7 +33,7 @@ begin
   # puts codemonkey.get_issue(issue_number: issue_number)
   
   # # Create a new branch -> OK
-  branch_name = "new-feature-branch"
+  #  branch_name = "4-TEST-ISSUE"
   # original_branch = "main"
   # puts "Creating branch: #{branch_name} from #{original_branch}"
   # puts codemonkey.create_branch(branch_name: branch_name, original_branch: original_branch)
@@ -43,9 +43,9 @@ begin
   # puts "Changing issue number #{issue_number} status to #{new_issue_state}"
   # puts codemonkey.change_issue_status(issue_number: issue_number, state: new_issue_state)
   
-  # # Commit changes -> Needs correction - We must include the upload of the file to commit
-  # commit_message = "Initial commit"
-  # files = ["sandbox/test.txt"]
+  # # Commit changes -> OK
+  # commit_message = "another fix"
+  # files = ["/tmp/lmoreira-runtime/labs-tests/test.txt"]
   # puts "Committing changes to branch: #{branch_name}"
   # puts codemonkey.commit_changes(message: commit_message, branch_name: branch_name, files: files)
   
@@ -61,38 +61,41 @@ begin
   # puts "Cloning repository #{repo_name}"
   # puts codemonkey.clone_repo
   
+  # # Running codemonkey -> OK
   # puts "Running codemonkey with issue number: #{issue_number}"
   # puts codemonkey.run_codemonkey(issue_number: issue_number)
 
-  # Replace with actual issue summary -> NOK
-  issue_summary = """
-  This project consists on the development of a Rest api to manage/views: Authors, Books and Categories.
+  # Replace with actual issue summary -> OK
+  # issue_summary = """
+  # This project consists on the development of a Rest api to manage/views: Authors, Books and Categories.
 
-  Requirements
+  # Requirements
 
-  User needs to be able to manage Authors, Books, and Categories in the app.
-  Each Author can have many Books that he/her has written and each book can be included in multiple categories.
-  The User should be able to view lists of Authors and Books.
-  The Books should be able to be filtered by Author and by Category.
-  Optional: The App should also include a page to view some basic statistics, like the number of Books per Author, or the number of Books per Category.
-  Optional: To complicate the models. A book can have many instances and users can request an instance to take home with a
-  requested date.
+  # User needs to be able to manage Authors, Books, and Categories in the app.
+  # Each Author can have many Books that he/her has written and each book can be included in multiple categories.
+  # The User should be able to view lists of Authors and Books.
+  # The Books should be able to be filtered by Author and by Category.
+  # Optional: The App should also include a page to view some basic statistics, like the number of Books per Author, or the number of Books per Category.
+  # Optional: To complicate the models. A book can have many instances and users can request an instance to take home with a
+  # requested date.
 
-  Acceptance Criteria
+  # Acceptance Criteria
 
-  Design the model entity relation for this project:
-  use Mermaid, this is supported out of the box by Github's Markdown
-  Design the API endpoints, including:
-  path
-  request
-  response
-  Once the design/planning part has been taken care of and agreed upon, please create tickets/issues for each of the tasks. Having those created, their commits should respect the nomenclature used in the conventional commits:
+  # Design the model entity relation for this project:
+  # use Mermaid, this is supported out of the box by Github's Markdown
+  # Design the API endpoints, including:
+  # path
+  # request
+  # response
+  # Once the design/planning part has been taken care of and agreed upon, please create tickets/issues for each of the tasks. Having those created, their commits should respect the nomenclature used in the conventional commits:
 
-  if it's a task: task/<number_of_the_ticket>/small-description;
-  if it's a bug: bugfix/<number_of_the_ticket>/small-description;
-  if it's a release: chore/<number_of_the_ticket>/small-description."""
-  puts "Running llm_with_context with issue summary: #{issue_summary}"
-  puts codemonkey.llm_with_context(issue_summary: issue_summary)
+  # if it's a task: task/<number_of_the_ticket>/small-description;
+  # if it's a bug: bugfix/<number_of_the_ticket>/small-description;
+  # if it's a release: chore/<number_of_the_ticket>/small-description."""
+
+  # issue_summary = """Develop a \"Hello World\" in python."""
+  # puts "Running llm_with_context with issue summary: #{issue_summary}"
+  # puts codemonkey.llm_with_context(issue_summary: issue_summary)
   
 rescue => e
   puts "An error occurred: #{e.message}"
