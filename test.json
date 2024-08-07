@@ -1,0 +1,650 @@
+{
+	"openapi": "3.1.0",
+	"info": {
+		"title": "FastAPI",
+		"version": "0.1.0"
+	},
+	"paths": {
+		"/codemonkey/run": {
+			"post": {
+				"summary": "List Issues",
+				"operationId": "list_issues_codemonkey_run_post",
+				"parameters": [
+					{
+						"name": "litellm_api_key",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"title": "Litellm Api Key"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IssueRequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/codemonkey/llm_with_context": {
+			"post": {
+				"summary": "Llm With Context",
+				"operationId": "llm_with_context_codemonkey_llm_with_context_post",
+				"parameters": [
+					{
+						"name": "litellm_api_key",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"title": "Litellm Api Key"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_llm_with_context_codemonkey_llm_with_context_post"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/list-issues": {
+			"post": {
+				"summary": "List Issues",
+				"operationId": "list_issues_github_list_issues_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_list_issues_github_list_issues_post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/get-issue": {
+			"post": {
+				"summary": "Get Issue",
+				"operationId": "get_issue_github_get_issue_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_get_issue_github_get_issue_post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/create-branch": {
+			"post": {
+				"summary": "Create Branch",
+				"operationId": "create_branch_github_create_branch_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_create_branch_github_create_branch_post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/change-issue-status": {
+			"post": {
+				"summary": "Change Issue Status",
+				"operationId": "change_issue_status_github_change_issue_status_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_change_issue_status_github_change_issue_status_post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/commit-changes": {
+			"post": {
+				"summary": "Commit Changes",
+				"operationId": "commit_changes_github_commit_changes_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_commit_changes_github_commit_changes_post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/create-pull-request": {
+			"post": {
+				"summary": "Create Pull Request",
+				"operationId": "create_pull_request_github_create_pull_request_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Body_create_pull_request_github_create_pull_request_post"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/github/clone": {
+			"post": {
+				"summary": "Clone Repo",
+				"operationId": "clone_repo_github_clone_post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GithubModel"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful Response",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPValidationError"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Body_change_issue_status_github_change_issue_status_post": {
+				"properties": {
+					"request": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"params": {
+						"$ref": "#/components/schemas/ChangeIssueStatusRequest"
+					}
+				},
+				"type": "object",
+				"required": ["request", "params"],
+				"title": "Body_change_issue_status_github_change_issue_status_post"
+			},
+			"Body_commit_changes_github_commit_changes_post": {
+				"properties": {
+					"request": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"params": {
+						"$ref": "#/components/schemas/CommitChangesRequest"
+					}
+				},
+				"type": "object",
+				"required": ["request", "params"],
+				"title": "Body_commit_changes_github_commit_changes_post"
+			},
+			"Body_create_branch_github_create_branch_post": {
+				"properties": {
+					"request": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"params": {
+						"$ref": "#/components/schemas/CreateBranchRequest"
+					}
+				},
+				"type": "object",
+				"required": ["request", "params"],
+				"title": "Body_create_branch_github_create_branch_post"
+			},
+			"Body_create_pull_request_github_create_pull_request_post": {
+				"properties": {
+					"request": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"params": {
+						"$ref": "#/components/schemas/CreatePullRequest"
+					}
+				},
+				"type": "object",
+				"required": ["request", "params"],
+				"title": "Body_create_pull_request_github_create_pull_request_post"
+			},
+			"Body_get_issue_github_get_issue_post": {
+				"properties": {
+					"request": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"params": {
+						"$ref": "#/components/schemas/IssueRequest"
+					}
+				},
+				"type": "object",
+				"required": ["request", "params"],
+				"title": "Body_get_issue_github_get_issue_post"
+			},
+			"Body_list_issues_github_list_issues_post": {
+				"properties": {
+					"request": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"params": {
+						"$ref": "#/components/schemas/ListIssuesRequest"
+					}
+				},
+				"type": "object",
+				"required": ["request", "params"],
+				"title": "Body_list_issues_github_list_issues_post"
+			},
+			"Body_llm_with_context_codemonkey_llm_with_context_post": {
+				"properties": {
+					"github": {
+						"$ref": "#/components/schemas/GithubModel"
+					},
+					"issue_summary": {
+						"$ref": "#/components/schemas/Issue"
+					}
+				},
+				"type": "object",
+				"required": ["github", "issue_summary"],
+				"title": "Body_llm_with_context_codemonkey_llm_with_context_post"
+			},
+			"ChangeIssueStatusRequest": {
+				"properties": {
+					"issue_number": {
+						"type": "integer",
+						"title": "Issue Number"
+					},
+					"state": {
+						"type": "string",
+						"title": "State"
+					}
+				},
+				"type": "object",
+				"required": ["issue_number", "state"],
+				"title": "ChangeIssueStatusRequest"
+			},
+			"CommitChangesRequest": {
+				"properties": {
+					"message": {
+						"type": "string",
+						"title": "Message"
+					},
+					"branch_name": {
+						"type": "string",
+						"title": "Branch Name"
+					},
+					"files": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array",
+						"title": "Files"
+					}
+				},
+				"type": "object",
+				"required": ["message", "branch_name", "files"],
+				"title": "CommitChangesRequest"
+			},
+			"CreateBranchRequest": {
+				"properties": {
+					"branch_name": {
+						"type": "string",
+						"title": "Branch Name"
+					},
+					"original_branch": {
+						"type": "string",
+						"title": "Original Branch",
+						"default": "main"
+					}
+				},
+				"type": "object",
+				"required": ["branch_name"],
+				"title": "CreateBranchRequest"
+			},
+			"CreatePullRequest": {
+				"properties": {
+					"head": {
+						"type": "string",
+						"title": "Head"
+					},
+					"base": {
+						"type": "string",
+						"title": "Base",
+						"default": "main"
+					},
+					"title": {
+						"type": "string",
+						"title": "Title",
+						"default": "New Pull Request"
+					},
+					"body": {
+						"type": "string",
+						"title": "Body",
+						"default": ""
+					}
+				},
+				"type": "object",
+				"required": ["head"],
+				"title": "CreatePullRequest"
+			},
+			"GithubModel": {
+				"properties": {
+					"github_token": {
+						"type": "string",
+						"title": "Github Token"
+					},
+					"repo_owner": {
+						"type": "string",
+						"title": "Repo Owner"
+					},
+					"repo_name": {
+						"type": "string",
+						"title": "Repo Name"
+					},
+					"user_name": {
+						"anyOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "null"
+							}
+						],
+						"title": "User Name"
+					}
+				},
+				"type": "object",
+				"required": ["github_token", "repo_owner", "repo_name"],
+				"title": "GithubModel"
+			},
+			"HTTPValidationError": {
+				"properties": {
+					"detail": {
+						"items": {
+							"$ref": "#/components/schemas/ValidationError"
+						},
+						"type": "array",
+						"title": "Detail"
+					}
+				},
+				"type": "object",
+				"title": "HTTPValidationError"
+			},
+			"Issue": {
+				"properties": {
+					"issue_summary": {
+						"type": "string",
+						"title": "Issue Summary"
+					}
+				},
+				"type": "object",
+				"required": ["issue_summary"],
+				"title": "Issue"
+			},
+			"IssueRequest": {
+				"properties": {
+					"issue_number": {
+						"type": "integer",
+						"title": "Issue Number"
+					}
+				},
+				"type": "object",
+				"required": ["issue_number"],
+				"title": "IssueRequest"
+			},
+			"ListIssuesRequest": {
+				"properties": {
+					"assignee": {
+						"anyOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "null"
+							}
+						],
+						"title": "Assignee"
+					},
+					"state": {
+						"type": "string",
+						"title": "State",
+						"default": "open"
+					},
+					"per_page": {
+						"type": "integer",
+						"title": "Per Page",
+						"default": 100
+					}
+				},
+				"type": "object",
+				"title": "ListIssuesRequest"
+			},
+			"ValidationError": {
+				"properties": {
+					"loc": {
+						"items": {
+							"anyOf": [
+								{
+									"type": "string"
+								},
+								{
+									"type": "integer"
+								}
+							]
+						},
+						"type": "array",
+						"title": "Location"
+					},
+					"msg": {
+						"type": "string",
+						"title": "Message"
+					},
+					"type": {
+						"type": "string",
+						"title": "Error Type"
+					}
+				},
+				"type": "object",
+				"required": ["loc", "msg", "type"],
+				"title": "ValidationError"
+			}
+		}
+	}
+}
