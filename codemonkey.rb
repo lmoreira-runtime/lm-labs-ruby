@@ -3,7 +3,6 @@ require 'json'
 require 'uri'
 require 'dotenv'
 
-
 class Codemonkey
 
   def initialize(base_url:, llm_api_key:, github_token:, repo_owner:, repo_name:, user_name: nil)

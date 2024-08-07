@@ -24,9 +24,9 @@ begin
   # Replace with actual issue number
   issue_number = 4
   
-  # # List issues -> OK
-  # puts "Listing issues assigned to #{user_name}"
-  # puts codemonkey.list_issues(assignee: user_name)
+  # List issues -> OK
+  puts "Listing issues assigned to #{user_name}"
+  puts codemonkey.list_issues(assignee: user_name)
   
   # # Get issue details -> OK
   # puts "Getting details of issue number: #{issue_number}"
