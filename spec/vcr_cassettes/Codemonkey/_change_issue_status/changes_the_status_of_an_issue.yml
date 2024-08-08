@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://127.0.0.1:8000/github/change-issue-status
+    body:
+      encoding: UTF-8
+      string: '{"request":{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"lmoreira-runtime","repo_name":"labs-tests","user_name":"lmoreira-runtime"},"params":{"issue_number":4,"state":"closed"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 08 Aug 2024 10:29:04 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '5235'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://api.github.com/repos/lmoreira-runtime/labs-tests/issues/4","repository_url":"https://api.github.com/repos/lmoreira-runtime/labs-tests","labels_url":"https://api.github.com/repos/lmoreira-runtime/labs-tests/issues/4/labels{/name}","comments_url":"https://api.github.com/repos/lmoreira-runtime/labs-tests/issues/4/comments","events_url":"https://api.github.com/repos/lmoreira-runtime/labs-tests/issues/4/events","html_url":"https://github.com/lmoreira-runtime/labs-tests/issues/4","id":2453193977,"node_id":"I_kwDOMdmNlM6SOMT5","number":4,"title":"TEST
+        ISSUE","user":{"login":"lmoreira-runtime","id":165663989,"node_id":"U_kgDOCd_U9Q","avatar_url":"https://avatars.githubusercontent.com/u/165663989?v=4","gravatar_id":"","url":"https://api.github.com/users/lmoreira-runtime","html_url":"https://github.com/lmoreira-runtime","followers_url":"https://api.github.com/users/lmoreira-runtime/followers","following_url":"https://api.github.com/users/lmoreira-runtime/following{/other_user}","gists_url":"https://api.github.com/users/lmoreira-runtime/gists{/gist_id}","starred_url":"https://api.github.com/users/lmoreira-runtime/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lmoreira-runtime/subscriptions","organizations_url":"https://api.github.com/users/lmoreira-runtime/orgs","repos_url":"https://api.github.com/users/lmoreira-runtime/repos","events_url":"https://api.github.com/users/lmoreira-runtime/events{/privacy}","received_events_url":"https://api.github.com/users/lmoreira-runtime/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":{"login":"lmoreira-runtime","id":165663989,"node_id":"U_kgDOCd_U9Q","avatar_url":"https://avatars.githubusercontent.com/u/165663989?v=4","gravatar_id":"","url":"https://api.github.com/users/lmoreira-runtime","html_url":"https://github.com/lmoreira-runtime","followers_url":"https://api.github.com/users/lmoreira-runtime/followers","following_url":"https://api.github.com/users/lmoreira-runtime/following{/other_user}","gists_url":"https://api.github.com/users/lmoreira-runtime/gists{/gist_id}","starred_url":"https://api.github.com/users/lmoreira-runtime/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lmoreira-runtime/subscriptions","organizations_url":"https://api.github.com/users/lmoreira-runtime/orgs","repos_url":"https://api.github.com/users/lmoreira-runtime/repos","events_url":"https://api.github.com/users/lmoreira-runtime/events{/privacy}","received_events_url":"https://api.github.com/users/lmoreira-runtime/received_events","type":"User","site_admin":false},"assignees":[{"login":"lmoreira-runtime","id":165663989,"node_id":"U_kgDOCd_U9Q","avatar_url":"https://avatars.githubusercontent.com/u/165663989?v=4","gravatar_id":"","url":"https://api.github.com/users/lmoreira-runtime","html_url":"https://github.com/lmoreira-runtime","followers_url":"https://api.github.com/users/lmoreira-runtime/followers","following_url":"https://api.github.com/users/lmoreira-runtime/following{/other_user}","gists_url":"https://api.github.com/users/lmoreira-runtime/gists{/gist_id}","starred_url":"https://api.github.com/users/lmoreira-runtime/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lmoreira-runtime/subscriptions","organizations_url":"https://api.github.com/users/lmoreira-runtime/orgs","repos_url":"https://api.github.com/users/lmoreira-runtime/repos","events_url":"https://api.github.com/users/lmoreira-runtime/events{/privacy}","received_events_url":"https://api.github.com/users/lmoreira-runtime/received_events","type":"User","site_admin":false}],"milestone":null,"comments":0,"created_at":"2024-08-07T10:58:09Z","updated_at":"2024-08-08T10:29:22Z","closed_at":"2024-08-08T10:29:22Z","author_association":"OWNER","active_lock_reason":null,"body":"Develop
+        a \"Hello World\" in python.","closed_by":{"login":"lmoreira-runtime","id":165663989,"node_id":"U_kgDOCd_U9Q","avatar_url":"https://avatars.githubusercontent.com/u/165663989?v=4","gravatar_id":"","url":"https://api.github.com/users/lmoreira-runtime","html_url":"https://github.com/lmoreira-runtime","followers_url":"https://api.github.com/users/lmoreira-runtime/followers","following_url":"https://api.github.com/users/lmoreira-runtime/following{/other_user}","gists_url":"https://api.github.com/users/lmoreira-runtime/gists{/gist_id}","starred_url":"https://api.github.com/users/lmoreira-runtime/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lmoreira-runtime/subscriptions","organizations_url":"https://api.github.com/users/lmoreira-runtime/orgs","repos_url":"https://api.github.com/users/lmoreira-runtime/repos","events_url":"https://api.github.com/users/lmoreira-runtime/events{/privacy}","received_events_url":"https://api.github.com/users/lmoreira-runtime/received_events","type":"User","site_admin":false},"reactions":{"url":"https://api.github.com/repos/lmoreira-runtime/labs-tests/issues/4/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/lmoreira-runtime/labs-tests/issues/4/timeline","performed_via_github_app":null,"state_reason":"completed"}'
+  recorded_at: Thu, 08 Aug 2024 10:29:22 GMT
+recorded_with: VCR 6.2.0
