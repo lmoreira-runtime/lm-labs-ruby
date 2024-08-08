@@ -3,7 +3,6 @@ require 'json'
 require 'uri'
 require 'dotenv'
 
-
 class Codemonkey
 
   def initialize(base_url:, llm_api_key:, github_token:, repo_owner:, repo_name:, user_name: nil)
@@ -16,7 +15,13 @@ class Codemonkey
   end
 
   def run_codemonkey(issue_number:)
-    request_body = { issue_number: issue_number }
+    request_body = {
+      github_token: @github_token, 
+      repo_owner: @repo_owner, 
+      repo_name: @repo_name, 
+      issue_number: issue_number, 
+      litellm_api_key: @llm_api_key
+    }
     request(:post, '/codemonkey/run', request_body, @llm_api_key)
   end
 

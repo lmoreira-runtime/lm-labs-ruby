@@ -3,7 +3,11 @@
 source "https://rubygems.org"
 
 # gem "rails"
-gem 'rspec'
-gem 'webmock'
 gem 'dotenv'
 gem 'rdoc'
+
+group :test do
+  gem 'rspec'
+  gem 'vcr'
+  gem 'webmock'
+end
