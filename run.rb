@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require_relative 'codemonkey'
 require 'dotenv'
 
 Dotenv.load
 
-llm_api_key = ENV['OPENAI_API_KEY']
-github_token = ENV['GITHUB_ACCESS_TOKEN']
-repo_owner = ENV['GITHUB_OWNER']
-repo_name = ENV['GITHUB_REPO']
-user_name = ENV['GITHUB_USERNAME']
-base_url = ENV['BASE_URL']
+llm_api_key = ENV.fetch('OPENAI_API_KEY', nil)
+github_token = ENV.fetch('GITHUB_ACCESS_TOKEN', nil)
+repo_owner = ENV.fetch('GITHUB_OWNER', nil)
+repo_name = ENV.fetch('GITHUB_REPO', nil)
+user_name = ENV.fetch('GITHUB_USERNAME', nil)
+base_url = ENV.fetch('BASE_URL', nil)
 
 codemonkey = Codemonkey.new(
   base_url: base_url,
@@ -22,33 +24,33 @@ codemonkey = Codemonkey.new(
 # Run Codemonkey tasks
 begin
   # Replace with actual issue number
-  issue_number = 4
-  
+  # issue_number = 4
+
   # List issues -> OK
   puts "Listing issues assigned to #{user_name}"
   puts codemonkey.list_issues(assignee: user_name)
-  
+
   # # Get issue details -> OK
   # puts "Getting details of issue number: #{issue_number}"
   # puts codemonkey.get_issue(issue_number: issue_number)
-  
+
   # # Create a new branch -> OK
   #  branch_name = "4-TEST-ISSUE"
   # original_branch = "main"
   # puts "Creating branch: #{branch_name} from #{original_branch}"
   # puts codemonkey.create_branch(branch_name: branch_name, original_branch: original_branch)
-  
+
   # # Change issue status -> OK
   # new_issue_state = "closed"
   # puts "Changing issue number #{issue_number} status to #{new_issue_state}"
   # puts codemonkey.change_issue_status(issue_number: issue_number, state: new_issue_state)
-  
+
   # # Commit changes -> OK
   # commit_message = "another fix"
   # files = ["/tmp/lmoreira-runtime/labs-tests/test.txt"]
   # puts "Committing changes to branch: #{branch_name}"
   # puts codemonkey.commit_changes(message: commit_message, branch_name: branch_name, files: files)
-  
+
   # # Create a pull request -> OK
   # pr_head = branch_name
   # pr_base = "main"
@@ -56,11 +58,11 @@ begin
   # pr_body = "Description of the new feature"
   # puts "Creating pull request from #{pr_head} to #{pr_base}"
   # puts codemonkey.create_pull_request(head: pr_head, base: pr_base, title: pr_title, body: pr_body)
-  
+
   # # Clone repository -> OK
   # puts "Cloning repository #{repo_name}"
   # puts codemonkey.clone_repo
-  
+
   # # Running codemonkey -> OK
   # puts "Running codemonkey with issue number: #{issue_number}"
   # puts codemonkey.run_codemonkey(issue_number: issue_number)
@@ -96,7 +98,6 @@ begin
   # issue_summary = """Develop a \"Hello World\" in python."""
   # puts "Running llm_with_context with issue summary: #{issue_summary}"
   # puts codemonkey.llm_with_context(issue_summary: issue_summary)
-  
-rescue => e
+rescue StandardError => e
   puts "An error occurred: #{e.message}"
 end

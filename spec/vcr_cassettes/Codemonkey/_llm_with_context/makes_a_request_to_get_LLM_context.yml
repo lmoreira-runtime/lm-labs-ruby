@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://127.0.0.1:8000/codemonkey/llm_with_context
+    body:
+      encoding: UTF-8
+      string: '{"github":{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"lmoreira-runtime","repo_name":"labs-tests","user_name":"lmoreira-runtime"},"params":{"issue_summary":"Develop
+        a \"Hello World\" in python.","token":"<OPENAI_API_KEY>"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 08 Aug 2024 10:29:04 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '106'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '["/tmp/lmoreira-runtime/labs-tests/hello_world.py","/tmp/lmoreira-runtime/labs-tests/test_hello_world.py"]'
+  recorded_at: Thu, 08 Aug 2024 10:29:13 GMT
+recorded_with: VCR 6.2.0

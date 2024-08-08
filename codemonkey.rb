@@ -1,10 +1,15 @@
+# frozen_string_literal: true
+
 require 'net/http'
 require 'json'
 require 'uri'
 require 'dotenv'
 
+# Codemonkey is a class that interfaces with CodeMonkey API, from Runtime Labs.
+# It provides methods to manage GitHub issues, branches, and pull requests,
+# and to interact with an LLM API for resolving issues autonomously.
+#
 class Codemonkey
-
   def initialize(base_url:, llm_api_key:, github_token:, repo_owner:, repo_name:, user_name: nil)
     @base_url = base_url
     @llm_api_key = llm_api_key
@@ -16,10 +21,10 @@ class Codemonkey
 
   def run_codemonkey(issue_number:)
     request_body = {
-      github_token: @github_token, 
-      repo_owner: @repo_owner, 
-      repo_name: @repo_name, 
-      issue_number: issue_number, 
+      github_token: @github_token,
+      repo_owner: @repo_owner,
+      repo_name: @repo_name,
+      issue_number: issue_number,
       litellm_api_key: @llm_api_key
     }
     request(:post, '/codemonkey/run', request_body, @llm_api_key)
@@ -95,7 +100,7 @@ class Codemonkey
 
   def request(method, path, body = nil, api_key = nil)
     uri = URI.join(@base_url, path)
-    #http = Net::HTTP.new(uri.host, uri.port, use_ssl: uri.scheme == 'https')
+    # http = Net::HTTP.new(uri.host, uri.port, use_ssl: uri.scheme == 'https')
     http = Net::HTTP.new(uri.host, uri.port)
     req = build_request(method, uri, body, api_key)
     response = http.request(req)
@@ -115,6 +120,7 @@ class Codemonkey
 
   def parse_response(response)
     return {} if response.body.nil? || response.body.strip.empty?
+
     case response.code.to_i
     when 200
       JSON.parse(response.body)
