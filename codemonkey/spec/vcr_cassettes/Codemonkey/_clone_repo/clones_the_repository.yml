@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<BASE_URL>/github/clone"
+    body:
+      encoding: UTF-8
+      string: '{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"<GITHUB_OWNER>","repo_name":"<GITHUB_REPO>","user_name":"<GITHUB_OWNER>"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Aug 2024 09:44:09 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '34'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '"/tmp/<GITHUB_OWNER>/<GITHUB_REPO>"'
+  recorded_at: Fri, 09 Aug 2024 09:44:09 GMT
+recorded_with: VCR 6.2.0

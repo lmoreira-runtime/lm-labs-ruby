@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<BASE_URL>/codemonkey/llm_with_context"
+    body:
+      encoding: UTF-8
+      string: '{"github":{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"<GITHUB_OWNER>","repo_name":"<GITHUB_REPO>","user_name":"<GITHUB_OWNER>"},"params":{"issue_summary":"Develop
+        a \"Hello World\" in python.","token":"<OPENAI_API_KEY>"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Aug 2024 09:44:09 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '160'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '["/tmp/<GITHUB_OWNER>/<GITHUB_REPO>/hello_world.py","/tmp/<GITHUB_OWNER>/<GITHUB_REPO>/test_calculator.py","/tmp/<GITHUB_OWNER>/<GITHUB_REPO>/test_hello_world.py"]'
+  recorded_at: Fri, 09 Aug 2024 09:44:18 GMT
+recorded_with: VCR 6.2.0

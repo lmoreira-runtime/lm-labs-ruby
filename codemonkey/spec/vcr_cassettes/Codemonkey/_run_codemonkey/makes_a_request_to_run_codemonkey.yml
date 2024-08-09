@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<BASE_URL>/codemonkey/run"
+    body:
+      encoding: UTF-8
+      string: '{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"<GITHUB_OWNER>","repo_name":"<GITHUB_REPO>","issue_number":4,"litellm_api_key":"<OPENAI_API_KEY>"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_API_KEY>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Aug 2024 09:44:09 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '4'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: 'null'
+  recorded_at: Fri, 09 Aug 2024 09:44:35 GMT
+recorded_with: VCR 6.2.0
