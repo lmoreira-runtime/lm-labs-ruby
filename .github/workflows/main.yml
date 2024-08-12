@@ -29,4 +29,4 @@ jobs:
     - name: Install dependencies
       run: bundle install --gemfile=codemonkey/Gemfile
     - name: Run the default task
-      run: bundle exec rake --rakefile=codemonkey/Rakefile
+      run: bundle exec rake --gemfile=codemonkey/Gemfile --rakefile=codemonkey/Rakefile
