@@ -17,17 +17,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      with:
-        path: codemonkey/
+    - name: List directory contents
+      run: ls -R codemonkey/
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-        working-directory: codemonkey/
+    - name: Verify Ruby version
+      run: ruby -v
     - name: Install dependencies
-      working-directory: codemonkey/
-      run: bundle install
+      run: bundle install --gemfile=codemonkey/Gemfile
     - name: Run the default task
-      working-directory: codemonkey/
-      run: bundle exec rake
+      run: bundle exec rake --rakefile=codemonkey/Rakefile
