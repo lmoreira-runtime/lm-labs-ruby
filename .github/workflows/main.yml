@@ -31,6 +31,6 @@ jobs:
     - name: Run the default task
       working-directory: codemonkey/
       env:
-        BUNDLE_GEMFILE: codemonkey/Gemfile
+        BUNDLE_GEMFILE: Gemfile
       run: bundle exec rake --rakefile=Rakefile
 
