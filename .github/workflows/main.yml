@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-
   pull_request:
 
 jobs:
@@ -26,6 +25,9 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
         working-directory: codemonkey/
+    - name: Install dependencies
+      working-directory: codemonkey/
+      run: bundle install
     - name: Run the default task
       working-directory: codemonkey/
       run: bundle exec rake
