@@ -6,12 +6,12 @@ require "dotenv"
 
 Dotenv.load(File.join(__dir__, "../../.env"))
 
-llm_api_key = ENV.fetch("OPENAI_API_KEY", nil)
-github_token = ENV.fetch("GITHUB_ACCESS_TOKEN", nil)
-repo_owner = ENV.fetch("GITHUB_OWNER", nil)
-repo_name = ENV.fetch("GITHUB_REPO", nil)
-user_name = ENV.fetch("GITHUB_USERNAME", nil)
-base_url = ENV.fetch("BASE_URL", nil)
+llm_api_key = ENV.fetch("OPENAI_API_KEY", "OPENAI_API_KEY")
+github_token = ENV.fetch("GITHUB_ACCESS_TOKEN", "GITHUB_ACCESS_TOKEN")
+repo_owner = ENV.fetch("GITHUB_OWNER", "GITHUB_OWNER")
+repo_name = ENV.fetch("GITHUB_REPO", "GITHUB_REPO")
+user_name = ENV.fetch("GITHUB_USERNAME", "GITHUB_USERNAME")
+base_url = ENV.fetch("BASE_URL", "BASE_URL")
 
 RSpec.describe Codemonkey, :vcr do
   before do
