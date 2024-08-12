@@ -17,6 +17,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Print Environment Variables
+      run: printenv
     - name: List directory contents
       run: ls -R codemonkey/
     - name: Set up Ruby
