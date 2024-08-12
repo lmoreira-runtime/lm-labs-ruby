@@ -8,6 +8,7 @@ gemspec
 gem "dotenv"
 gem "rdoc"
 gem "rubocop"
+gem 'rake', '~> 13.0'
 
 group :test do
   gem "rspec"
