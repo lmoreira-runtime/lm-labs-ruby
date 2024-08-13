@@ -6,12 +6,22 @@ require "dotenv"
 
 Dotenv.load(File.join(__dir__, "../../.env"))
 
-llm_api_key = ENV.fetch("OPENAI_API_KEY", "OPENAI_API_KEY")
-github_token = ENV.fetch("GITHUB_ACCESS_TOKEN", "GITHUB_ACCESS_TOKEN")
-repo_owner = ENV.fetch("GITHUB_OWNER", "GITHUB_OWNER")
-repo_name = ENV.fetch("GITHUB_REPO", "GITHUB_REPO")
-user_name = ENV.fetch("GITHUB_USERNAME", "GITHUB_USERNAME")
-base_url = ENV.fetch("BASE_URL", "BASE_URL")
+llm_api_key = ENV.fetch('OPENAI_API_KEY', 'OPENAI_API_KEY')
+github_token = ENV.fetch('GITHUB_ACCESS_TOKEN', 'GITHUB_ACCESS_TOKEN')
+repo_owner = ENV.fetch('GITHUB_OWNER', 'GITHUB_OWNER')
+repo_name = ENV.fetch('GITHUB_REPO', 'GITHUB_REPO')
+user_name = ENV.fetch('GITHUB_USERNAME', 'GITHUB_USERNAME')
+base_url = ENV.fetch('BASE_URL', "http://127.0.0.1:8000")
+
+puts llm_api_key.inspect
+puts github_token.inspect
+puts repo_owner.inspect
+puts repo_name.inspect
+puts user_name.inspect
+puts base_url.inspect
+
+puts "Base URL: #{base_url}"
+
 
 RSpec.describe Codemonkey, :vcr do
   before do

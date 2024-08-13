@@ -5,6 +5,7 @@ require "json"
 require "uri"
 require "dotenv"
 require_relative "codemonkey/version"
+require "pry"
 
 module Codemonkey
   class Error < StandardError; end
@@ -103,12 +104,20 @@ module Codemonkey
     private
 
     def request(method, path, body = nil, api_key = nil)
-      uri = URI.join(@base_url, path)
-      # http = Net::HTTP.new(uri.host, uri.port, use_ssl: uri.scheme == 'https')
-      http = Net::HTTP.new(uri.host, uri.port)
-      req = build_request(method, uri, body, api_key)
-      response = http.request(req)
-      parse_response(response)
+      begin
+        uri = URI.join(@base_url, path)
+        # http = Net::HTTP.new(uri.host, uri.port, use_ssl: uri.scheme == 'https')
+        http = Net::HTTP.new(uri.host, uri.port)
+        req = build_request(method, uri, body, api_key)
+        # puts "Requesting URL: #{uri}"
+        # puts "Request Body: #{body}"
+        # puts "Request Method: #{method}"
+        response = http.request(req)
+        # puts "Response Status: #{response.code}"
+        parse_response(response)
+      rescue => e
+        puts "Error: #{e.message}"
+      end
     end
 
     def build_request(method, uri, body, api_key = nil)

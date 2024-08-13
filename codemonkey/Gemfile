@@ -9,6 +9,8 @@ gem "dotenv"
 gem "rdoc"
 gem "rubocop"
 gem 'rake', '~> 13.0'
+gem 'pry-byebug'
+gem 'pry-rails'
 
 group :test do
   gem "rspec"

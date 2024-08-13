@@ -24,7 +24,7 @@ VCR.configure do |config|
   config.filter_sensitive_data("<GITHUB_OWNER>") { ENV.fetch("GITHUB_OWNER", nil) }
   config.filter_sensitive_data("<GITHUB_REPO>") { ENV.fetch("GITHUB_REPO", nil) }
   config.filter_sensitive_data("<GITHUB_USERNAME>") { ENV.fetch("GITHUB_USERNAME", nil) }
-  config.filter_sensitive_data("<BASE_URL>") { ENV.fetch("BASE_URL", nil) }
+  config.filter_sensitive_data("<BASE_URL>") { ENV.fetch("BASE_URL", "http://127.0.0.1:8000") }
 
   config.configure_rspec_metadata!
   config.allow_http_connections_when_no_cassette = true
