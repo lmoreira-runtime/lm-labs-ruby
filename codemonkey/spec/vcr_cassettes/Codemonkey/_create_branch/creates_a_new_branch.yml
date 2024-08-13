@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<BASE_URL>/github/create-branch"
+    body:
+      encoding: UTF-8
+      string: '{"request":{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"<GITHUB_OWNER>","repo_name":"<GITHUB_REPO>","user_name":"<GITHUB_OWNER>"},"params":{"branch_name":"new-new-branch","original_branch":"main"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Aug 2024 10:06:37 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '385'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"ref":"refs/heads/new-new-branch","node_id":"REF_kwDOMdmNlLlyZWZzL2hlYWRzL25ldy1uZXctYnJhbmNo","url":"https://api.github.com/repos/<GITHUB_OWNER>/<GITHUB_REPO>/git/refs/heads/new-new-branch","object":{"sha":"51b3167881d506c57f33daafc4331c37143e42c1","type":"commit","url":"https://api.github.com/repos/<GITHUB_OWNER>/<GITHUB_REPO>/git/commits/51b3167881d506c57f33daafc4331c37143e42c1"}}'
+  recorded_at: Fri, 09 Aug 2024 10:06:39 GMT
+recorded_with: VCR 6.2.0

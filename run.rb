@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'codemonkey'
+require_relative './codemonkey/lib/codemonkey'
 require 'dotenv'
 
 Dotenv.load
@@ -12,7 +12,7 @@ repo_name = ENV.fetch('GITHUB_REPO', nil)
 user_name = ENV.fetch('GITHUB_USERNAME', nil)
 base_url = ENV.fetch('BASE_URL', nil)
 
-codemonkey = Codemonkey.new(
+codemonkey = Codemonkey::Codemonkey.new(
   base_url: base_url,
   llm_api_key: llm_api_key,
   github_token: github_token,
@@ -24,18 +24,18 @@ codemonkey = Codemonkey.new(
 # Run Codemonkey tasks
 begin
   # Replace with actual issue number
-  # issue_number = 4
+  issue_number = 9
+  branch_name = "new-new-branch"
 
-  # List issues -> OK
-  puts "Listing issues assigned to #{user_name}"
-  puts codemonkey.list_issues(assignee: user_name)
+  # # List issues -> OK
+  # puts "Listing issues assigned to #{user_name}"
+  # puts codemonkey.list_issues(assignee: user_name)
 
   # # Get issue details -> OK
   # puts "Getting details of issue number: #{issue_number}"
   # puts codemonkey.get_issue(issue_number: issue_number)
 
   # # Create a new branch -> OK
-  #  branch_name = "4-TEST-ISSUE"
   # original_branch = "main"
   # puts "Creating branch: #{branch_name} from #{original_branch}"
   # puts codemonkey.create_branch(branch_name: branch_name, original_branch: original_branch)
@@ -45,11 +45,11 @@ begin
   # puts "Changing issue number #{issue_number} status to #{new_issue_state}"
   # puts codemonkey.change_issue_status(issue_number: issue_number, state: new_issue_state)
 
-  # # Commit changes -> OK
-  # commit_message = "another fix"
-  # files = ["/tmp/lmoreira-runtime/labs-tests/test.txt"]
-  # puts "Committing changes to branch: #{branch_name}"
-  # puts codemonkey.commit_changes(message: commit_message, branch_name: branch_name, files: files)
+  # Commit changes -> OK
+  commit_message = "another fix"
+  files = ["/tmp/lmoreira-runtime/labs-tests/hello.py"]
+  puts "Committing changes to branch: #{branch_name}"
+  puts codemonkey.commit_changes(message: commit_message, branch_name: branch_name, files: files)
 
   # # Create a pull request -> OK
   # pr_head = branch_name

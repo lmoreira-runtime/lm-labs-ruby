@@ -94,3 +94,16 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 # End of https://www.toptal.com/developers/gitignore/api/ruby,macos
+
+condemonkey/.bundle/
+condemonkey/.yardoc
+condemonkey/_yardoc/
+condemonkey/coverage/
+condemonkey/doc/
+condemonkey/pkg/
+condemonkey/spec/reports/
+condemonkey/tmp/
+
+# rspec failure tracking
+.rspec_status
+

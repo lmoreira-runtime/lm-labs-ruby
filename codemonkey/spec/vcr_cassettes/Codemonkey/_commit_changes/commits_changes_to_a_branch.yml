@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<BASE_URL>/github/commit-changes"
+    body:
+      encoding: UTF-8
+      string: '{"request":{"github_token":"<GITHUB_ACCESS_TOKEN>","repo_owner":"<GITHUB_OWNER>","repo_name":"<GITHUB_REPO>","user_name":"<GITHUB_OWNER>"},"params":{"message":"Test
+        commit","branch_name":"new-new-branch","files":["/tmp/<GITHUB_OWNER>/<GITHUB_REPO>/hello.py"]}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Aug 2024 14:24:28 GMT
+      Server:
+      - uvicorn
+      Content-Length:
+      - '385'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"ref":"refs/heads/new-new-branch","node_id":"REF_kwDOMdmNlLlyZWZzL2hlYWRzL25ldy1uZXctYnJhbmNo","url":"https://api.github.com/repos/<GITHUB_OWNER>/<GITHUB_REPO>/git/refs/heads/new-new-branch","object":{"sha":"a6cf297a9c6dfe5a04a93bb67f734310a1b1dd6b","type":"commit","url":"https://api.github.com/repos/<GITHUB_OWNER>/<GITHUB_REPO>/git/commits/a6cf297a9c6dfe5a04a93bb67f734310a1b1dd6b"}}'
+  recorded_at: Fri, 09 Aug 2024 14:24:30 GMT
+recorded_with: VCR 6.2.0
